@@ -1,12 +1,14 @@
 import React from 'react'
+import logo from './../../logo.svg'
 import './home.scss'
 
 function home() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div className="home flex_column">
+      <img src={logo} style={{ width: '200px' }} alt="logo" />
+      <p>Neumorphism Clock</p>
+    </div>
+  )
 }
 
 export default home

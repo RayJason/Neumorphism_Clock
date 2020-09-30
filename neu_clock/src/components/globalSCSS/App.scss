@@ -1,0 +1,14 @@
+@import 'Neumorphism.scss';
+@import 'init.scss';
+
+/* flex布局 */
+.flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

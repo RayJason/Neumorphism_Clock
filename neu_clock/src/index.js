@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './components/globalSCSS/App.scss' // 引入全局样式
+// import App from './App';
+import Nav from './components/header/Nav.js';
+import Home from './pages/home/home.js'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Nav />
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
