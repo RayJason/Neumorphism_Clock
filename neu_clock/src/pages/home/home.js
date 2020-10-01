@@ -4,7 +4,7 @@ import './home.scss'
 
 function home() {
   return (
-    <div className="home flex_column">
+    <div className="home columnCenter">
       <img src={logo} style={{ width: '200px' }} alt="logo" />
       <p>Neumorphism Clock</p>
     </div>
