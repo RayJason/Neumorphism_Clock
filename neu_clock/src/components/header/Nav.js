@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Nav.scss'
+import './Nav.module.scss'
 import Button from './../button/button.js' // 
 import icon_Home from './../../assets/shouye.svg'
 

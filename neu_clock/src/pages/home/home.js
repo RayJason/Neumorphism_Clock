@@ -1,11 +1,13 @@
 import React from 'react'
-import logo from './../../logo.svg'
-import './home.scss'
+import Clock from './components/clock'
+import './home.module.scss'
 
 function home() {
+  
+
   return (
     <div className="home columnCenter">
-      <img src={logo} style={{ width: '200px' }} alt="logo" />
+      <Clock />
       <p>Neumorphism Clock</p>
     </div>
   )
