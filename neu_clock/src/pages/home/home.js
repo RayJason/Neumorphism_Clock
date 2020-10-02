@@ -8,7 +8,7 @@ function home() {
   return (
     <div className={`${homeStyle.home} columnCenter`}>
       <Clock />
-      <p>Neumorphism Clock</p>
+      {/* <p>Neumorphism Clock</p> */}
     </div>
   )
 }

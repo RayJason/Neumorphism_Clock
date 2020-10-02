@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="CLOCK主页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="素in" transform="translate(-43.000000, -31.000000)" stroke="#333333" stroke-width="2">
+            <g id="top">
+                <g id="MENU" transform="translate(29.000000, 15.000000)">
+                    <g id="三条杠" transform="translate(15.000000, 17.000000)">
+                        <line x1="4.33680869e-16" y1="8.5" x2="20" y2="8.5" id="直线备份"></line>
+                        <line x1="4.33680869e-16" y1="16.5" x2="20" y2="16.5" id="直线备份-2"></line>
+                        <line x1="4.33680869e-16" y1="0.5" x2="20" y2="0.5" id="直线"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

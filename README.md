@@ -9,6 +9,16 @@
 - 多种时钟风格
 - 可切换背景颜色
 
+---  
+## 2020.10.02  
+- 实现指针时钟功能
+- 时间刷新使用setTimeout而不是setinterval降低开支获得更好的性能  
+- 按钮组件props增加超链接link、style
+- 重构导航栏布局，增加跳转主页、Github入口
+- css文件转为css module，学会使用css module应用全局和局部
+   
+![alt React_clock_Building_20201002](README_PIC/React_clock_Building_20201002.png)
+
 ---
 ## 2020.10.01   
 - 实现按钮组件化 有状态组件->无状态组件  
