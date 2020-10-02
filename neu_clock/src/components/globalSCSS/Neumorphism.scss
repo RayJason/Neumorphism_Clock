@@ -1,37 +1,39 @@
-.neuShadow_out {
-  background-image: linear-gradient(134deg, #f9ffff 0%, #d2dbe1 100%);
-  box-shadow: 5px 5px 10px 0 #ccd5de, -5px -5px 10px 0 #faffff;
-  border-radius: 10px;
-}
+:global {
+  .neuShadow_out {
+    background-image: linear-gradient(134deg, #f9ffff 0%, #d2dbe1 100%);
+    box-shadow: 5px 5px 10px 0 #ccd5de, -5px -5px 10px 0 #faffff;
+    border-radius: 10px;
+  }
 
-.neuShadow_out:hover {
-  background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
-  box-shadow: 5px 5px 10px 0 #d2dbe1, -5px -5px 10px 0 #ffffff;
-  border-radius: 10px;
-}
+  .neuShadow_out:hover {
+    background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
+    box-shadow: 5px 5px 10px 0 #d2dbe1, -5px -5px 10px 0 #ffffff;
+    border-radius: 10px;
+  }
 
-.neuShadow_in {
-  background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
-  box-shadow: inset 5px 5px 10px 0 rgba(210, 219, 225, 0.8),
-    inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-}
+  .neuShadow_in {
+    background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
+    box-shadow: inset 5px 5px 10px 0 rgba(210, 219, 225, 0.8),
+      inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
 
-.neuShadow_in:hover {
-  background-image: linear-gradient(134deg, #f9ffff 0%, #d2dbe1 100%);
-  box-shadow: 5px 5px 10px 0 #ccd5de, -5px -5px 10px 0 #faffff;
-  border-radius: 10px;
-}
+  .neuShadow_in:hover {
+    background-image: linear-gradient(134deg, #f9ffff 0%, #d2dbe1 100%);
+    box-shadow: 5px 5px 10px 0 #ccd5de, -5px -5px 10px 0 #faffff;
+    border-radius: 10px;
+  }
 
-.neuShadow_border {
-  background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
-  box-shadow: 5px 5px 10px 0 #d2dbe1, -5px -5px 10px 0 #ffffff;
-  border-radius: 10px;
-}
+  .neuShadow_border {
+    background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
+    box-shadow: 5px 5px 10px 0 #d2dbe1, -5px -5px 10px 0 #ffffff;
+    border-radius: 10px;
+  }
 
-.neuShadow_border:hover {
-  background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
-  box-shadow: inset 5px 5px 10px 0 rgba(210, 219, 225, 0.8),
-    inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  .neuShadow_border:hover {
+    background-image: linear-gradient(134deg, #d2dbe1 0%, #f9ffff 100%);
+    box-shadow: inset 5px 5px 10px 0 rgba(210, 219, 225, 0.8),
+      inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
 }

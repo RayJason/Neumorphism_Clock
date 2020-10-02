@@ -1,12 +1,12 @@
 import React from 'react'
 import Clock from './components/clock'
-import './home.module.scss'
+import homeStyle from './home.module.scss'
 
 function home() {
   
 
   return (
-    <div className="home columnCenter">
+    <div className={`${homeStyle.home} columnCenter`}>
       <Clock />
       <p>Neumorphism Clock</p>
     </div>

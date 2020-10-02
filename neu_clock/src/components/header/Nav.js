@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Nav.module.scss'
+import navStyle from './Nav.module.scss'
 import Button from './../button/button.js' // 
 import icon_Home from './../../assets/shouye.svg'
 
@@ -7,10 +7,10 @@ import icon_Home from './../../assets/shouye.svg'
 export default class Nav extends Component {
   render() {
     return (
-      <nav>
+      <nav className={navStyle.nav} >
         <Button Width="40px" Height="40px" button_text="X" Style="out" />
         <p
-          className="title"
+          className={navStyle.title}
         >
           Neumorphism Clock
         </p>
