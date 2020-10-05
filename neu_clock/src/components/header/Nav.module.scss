@@ -2,7 +2,8 @@
 .nav {
   background: $white_a;
   min-width: 400px;
-  position: fixed;
+  position: relative;
+  // position: fixed;
   z-index: 1;
   padding: 0 20px;
   width: 100%;
@@ -10,13 +11,99 @@
   .title {
     position: absolute;
     margin: auto;
-    left: 50%; 
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
-    white-space: nowrap;
+    text-align: center;
+    // white-space: nowrap;
     letter-spacing: 7px;
+    line-height: 16px;
     font-size: calc(8px + 1vmin);
     pointer-events: none;
+  }
+}
+
+.burgerToggle {
+  appearance: none;
+  opacity: 0;
+  display: none;
+  &:checked {
+    & ~ .burgerMenu {
+      .line {
+        &:nth-child(1) {
+          transform: translateY(calc(var(--burger-menu-radius) / 5))
+            rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: scaleX(0);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(calc(var(--burger-menu-radius) / -5))
+            rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.burgerMenu {
+  --burger-menu-radius: 3em;
+  position: relative;
+  z-index: 100;
+  display: block;
+  width: var(--burger-menu-radius);
+  height: var(--burger-menu-radius);
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+
+  .line {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: hsla(210, 29%, 24%, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+
+    &:nth-child(1) {
+      top: 30%;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+    }
+
+    &:nth-child(3) {
+      top: 70%;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #333333;
+      transform: translateX(-100%);
+      transition: all 0.25s ease;
+    }
+
+    @for $i from 2 through 3 {
+      &:nth-child(#{$i})::after {
+        transition-delay: 0.1s * ($i - 1);
+      }
+    }
+  }
+
+  &:hover {
+    .line::after {
+      transform: translateX(0);
+    }
   }
 }

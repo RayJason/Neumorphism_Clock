@@ -2,14 +2,12 @@ import React from 'react'
 
 /* 
   按钮组件
-  属性:
-  宽/高/按钮内容
-  Width/Height/button_icon
-  风格：
-  Style
-  默认 neuShadow_border
-  "in":neuShadow_in
-  "out":neuShadow_out
+  Width:按钮宽度 默认40px
+  Height:按钮高度 默认40px
+  button_icon:按钮图标 用import或require('路径')引入
+  button_text:按钮文字 也可插入组件
+  style:可直接写css样式
+  Style:按钮风格 border/in/out
 */
 
 function Button(props) {
@@ -37,15 +35,35 @@ function Button(props) {
       rel="nofollow noopener noreferrer"
       style={props.style}
     >
-      <button
+      {props.id && (
+        <input
+          type="checkbox"
+          id={props.id}
+          checked={props.checked}
+          readOnly
+          className="testChecked"
+          style={{ appearance: 'none', display: 'none' }}
+        ></input>
+      )}
+
+      <label
+        htmlFor={props.id}
         className={`columnCenter ${buttonStyle()}`}
-        style={{ width: props.Width, height: props.Height }}
+        style={{ width: props.Width, height: props.Height, cursor: 'pointer' }}
       >
-        <img src={props.button_icon} alt="" width="50%" />
+        {props.button_icon && (
+          <img src={props.button_icon} alt="" width="50%" />
+        )}
         {props.button_text}
-      </button>
+      </label>
     </a>
   )
+}
+
+// 默认props
+Button.defaultProps = {
+  Width: '40px',
+  Height: '40px',
 }
 
 export default Button

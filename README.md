@@ -1,13 +1,28 @@
 # Neumorphism_Clock
 
 一个Neumorphism风格的时钟  
-基于React框架开发的响应式网站
+基于React框架开发的静态响应式网站
 
 需求设计：
-- 响应式
-- 参数化生成Neumorphism风格
-- 多种时钟风格
-- 可切换背景颜色
+- 两种钟表选择：模拟钟表、数字钟表
+- 正点音乐报时
+- 用户自定义时间  
+- 倒计时
+- 参数化Neumorphism风格
+- 自定义背景颜色
+- 深色模式
+- 响应式  
+
+![alt Demand_Design](README_PIC/Demand_Design.png)
+
+---
+## 2020.10.05
+- 更新数字时钟
+- 更新规划的功能入口、菜单、开关
+- 按钮组件 button -> input type:checkbox 支持选择效果 更多拓展性
+- 菜单按钮增加动画效果  
+
+![alt React_clock_Building_20201002](README_PIC/React_clock_Building_20201005.png)
 
 ---  
 ## 2020.10.02  
@@ -16,7 +31,7 @@
 - 按钮组件props增加超链接link、style
 - 重构导航栏布局，增加跳转主页、Github入口
 - css文件转为css module，学会使用css module应用全局和局部
-   
+
 ![alt React_clock_Building_20201002](README_PIC/React_clock_Building_20201002.png)
 
 ---

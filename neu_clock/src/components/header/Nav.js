@@ -1,35 +1,63 @@
 import React, { Component } from 'react'
-import navStyle from './Nav.module.scss'
-import Button from './../button/button.js' //
-import icon_Home from './../../assets/shouye.svg'
-import icon_Menu from './../../assets/menu.svg'
-import icon_Github from './../../assets/github.svg'
+import styles from './Nav.module.scss'
+import Button from './../button/button.js' // 引入按钮组件
 
 /* 顶部导航栏 */
 export default class Nav extends Component {
+  constructor() {
+    super()
+    this.state = {
+      switchMenu: false,
+    }
+
+    this.SwitchMenu = this.SwitchMenu.bind(this)
+  }
+  Menu_icon() {
+    return (
+      <div>
+        <input
+          type="checkbox"
+          id="burgerToggle"
+          className={`${styles.burgerToggle}`}
+          onChange={this.SwitchMenu}
+        />
+        <label htmlFor="burgerToggle" className={`${styles.burgerMenu}`}>
+          <div className={`${styles.line}`}></div>
+          <div className={`${styles.line}`}></div>
+          <div className={`${styles.line}`}></div>
+        </label>
+      </div>
+    )
+  }
+
+  SwitchMenu() {
+    this.setState({
+      switchMenu: !this.state.switchMenu,
+    })
+  }
+
   render() {
     return (
-      <nav className={`rowSpaceBetween ${navStyle.nav}`}>
+      <nav className={`rowSpaceBetween ${styles.nav}`}>
+        <p className={styles.title}>Neumorphism Clock</p>
+        {/* 标题左侧按钮 */}
         <Button
-          Width="40px"
-          Height="40px"
-          button_icon={icon_Menu}
+          button_text={this.Menu_icon()}
+          id="Menu"
+          checked={this.state.switchMenu}
           Style="out"
         />
-        <p className={navStyle.title}>Neumorphism Clock</p>
+        {/* 标题右侧按钮 */}
         <div className="rowCenter">
           <Button
-            Width="40px"
-            Height="40px"
-            button_icon={icon_Github}
+            button_icon={require('./../../assets/github.svg')}
             Style="out"
             link="https://github.com/RayJason"
             style={{ margin: '0 20px' }}
           />
+
           <Button
-            Width="40px"
-            Height="40px"
-            button_icon={icon_Home}
+            button_icon={require('./../../assets/shouye.svg')}
             Style="out"
             link="https://rayjason.cn"
           />
