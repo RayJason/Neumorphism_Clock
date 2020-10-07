@@ -42,7 +42,7 @@ function FeaturesList() {
           style={{ margin: '10px' }}
         >
           <p>{feature.feature}</p>
-          <Button button_icon={feature.icon} />
+          <Button button_icon={feature.icon} id={feature.icon} />
         </div>
       ))}
     </div>
