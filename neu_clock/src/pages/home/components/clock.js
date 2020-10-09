@@ -15,12 +15,13 @@ function clock(props) {
   // 选择时钟风格
   function renderClock() {
     switch (props.clockStyle) {
-      case 'Analog':
-        // 模拟时钟
-        return <AnalogClock />
-      case 'Digital':
+      case 0:
         // 数字时钟
         return <DigitalClock />
+      case 1:
+        // 模拟时钟
+        return <AnalogClock />
+
       default:
         // 默认模拟时钟
         return <AnalogClock />

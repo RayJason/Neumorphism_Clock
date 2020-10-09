@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Clock from './components/clock'
 import Button from './../../components/button/button'
 import styles from './home.module.scss'
+
+import Nav from './../../components/header/Nav.js'
+import Footer from './../../components/footer/footer.js'
 
 import clock from './../../assets/clock.svg'
 import shalou from './../../assets/shalou.svg'
 import daojishi from './../../assets/daojishi.svg'
 import naozhong from './../../assets/naozhong.svg'
 
-// 功能列表
+// 左下角功能列表
 function FeaturesList() {
   const featuresList = [
     {
@@ -49,35 +52,40 @@ function FeaturesList() {
   )
 }
 
-function Menu() {
-  return (
-    <div className={`${styles.menu} columnCenterStart`}>
-      <div className={`${styles.item} rowCenter`}>
-        <input className="switch" type="checkbox" id="Punctuality" />
-        <label htmlFor="Punctuality" className={`${styles.text}`}>
-          正点报时
-        </label>
-      </div>
-      <div className={`${styles.item} rowCenter`}>
-        <input className="switch" type="checkbox" id="clockStyle" />
-        <label htmlFor="clockStyle" className={`${styles.text}`}>
-          数字时钟/模拟时钟
-        </label>
-      </div>
-    </div>
-  )
-}
+export class home extends Component {
+  constructor() {
+    super()
+    this.state = {
+      menu: '', // 显示菜单
+      features: 0, // 功能选择
+      punctual: false, // 整点报时
+      clockStyle: 1, // 时钟风格
+    }
 
-function home() {
-  return (
-    <div style={{ position: 'relative' }}>
-      <Menu />
-      <div className={`${styles.home} columnCenter`}>
-        <Clock clockStyle="Analog" />
+    this.setClockStyle = this.setClockStyle.bind(this)
+  }
+
+  // 时钟风格切换
+  setClockStyle(e) {
+    this.setState({
+      clockStyle: e,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <Nav clockStyle={this.setClockStyle} />
+        <div style={{ position: 'relative' }}>
+          <div className={`${styles.home} columnCenter`}>
+            <Clock clockStyle={this.state.clockStyle} />
+          </div>
+          <FeaturesList />
+        </div>
+        <Footer />
       </div>
-      <FeaturesList />
-    </div>
-  )
+    )
+  }
 }
 
 export default home

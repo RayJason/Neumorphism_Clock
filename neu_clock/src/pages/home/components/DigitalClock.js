@@ -6,6 +6,7 @@ export default class DigitalClock extends Component {
     super()
     this.state = {
       date: '', // 显示的时间
+      timeout: '', // 定时器
     }
 
     this.getTime = this.getTime.bind(this)
@@ -18,7 +19,7 @@ export default class DigitalClock extends Component {
 
   // 在组件从 DOM 中移除之前立刻被调用
   componentWillUnmount() {
-    clearTimeout(this.getTime)
+    clearTimeout(this.state.timeout)
   }
 
   // 获取时间 (非自定义时间)
@@ -33,8 +34,8 @@ export default class DigitalClock extends Component {
     // 设置时间和时钟角度
     this.setState({
       date: time,
+      timeout :  setTimeout(this.getTime, 1000)
     })
-    setTimeout(this.getTime, 1000)
   }
 
   render() {

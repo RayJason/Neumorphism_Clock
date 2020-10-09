@@ -1,0 +1,11 @@
+// 菜单
+.menu {
+    .item + .item {
+      margin-top: 20px;
+    }
+    .text {
+      margin-left: 10px;
+      letter-spacing: 8px;
+      font-weight: 200;
+    }
+  }

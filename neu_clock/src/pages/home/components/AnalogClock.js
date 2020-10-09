@@ -6,6 +6,7 @@ export default class AnalogClock extends Component {
     super()
     this.state = {
       date: '', // 显示的时间
+      timeout: '', // 定时器
       hourRotate: 0, // 时针角度
       minuteRotate: 0, // 分针角度
       secondRotate: new Date().getSeconds() * 6, // 秒针角度
@@ -21,7 +22,7 @@ export default class AnalogClock extends Component {
 
   // 在组件从 DOM 中移除之前立刻被调用
   componentWillUnmount() {
-    clearTimeout(this.getTime)
+    clearTimeout(this.state.timeout)
   }
 
   // 获取时间 (非自定义时间)
@@ -39,8 +40,8 @@ export default class AnalogClock extends Component {
       hourRotate: (data.getHours() % 12) * 30 + 30 * (minutes / 60),
       minuteRotate: data.getMinutes() * 6 + 6 * (data.getSeconds() / 60),
       secondRotate: this.state.secondRotate + 6,
+      timeout :  setTimeout(this.getTime, 1000)
     })
-    setTimeout(this.getTime, 1000)
   }
 
   render() {

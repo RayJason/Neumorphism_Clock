@@ -16,6 +16,23 @@
 ![alt Demand_Design](README_PIC/Demand_Design.png)
 
 ---
+## 2020.10.09
+- 实现按钮功能开关：数字时钟和模拟时钟切换
+- 实现点击设置按钮显示和隐藏设置功能
+- 实现和实践父子传值、子父传值、兄弟传值
+  - 父子传值：
+    - 父：在子标签 _{值名={值}}_
+    - 子：
+      - 有状态组件：值=_this.props.值名_ 
+      - 无状态组件：function name(_props_) 值=_props.值名_ 
+  - 子父传值：
+    - 子：
+      - 有状态组件：_this.props.stateName(值)_
+      - 无状态组件：function name(_props_) _props.stateName(值)_ 
+    - 父：在子标签 _{stateName={this.setFunction}}_
+      - _function setFunction(e) { console.log("接收到的值：",e) }_
+
+---
 ## 2020.10.05
 - 更新数字时钟
 - 更新规划的功能入口、菜单、开关
