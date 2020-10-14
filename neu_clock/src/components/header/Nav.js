@@ -14,7 +14,6 @@ export default class Nav extends Component {
     }
 
     this.SwitchMenu = this.SwitchMenu.bind(this)
-    this.setClockStyle = this.setClockStyle.bind(this)
   }
 
   Menu_icon() {
@@ -39,11 +38,6 @@ export default class Nav extends Component {
     this.setState({
       switchMenu: !this.state.switchMenu,
     })
-  }
-
-  // 时钟风格切换
-  setClockStyle(e) {
-    this.props.clockStyle(e)
   }
 
   render() {
@@ -75,8 +69,12 @@ export default class Nav extends Component {
         </div>
         {/* 菜单list */}
         {this.state.switchMenu && (
-          <div style={{ position: 'absolute', left: '20px', bottom: '-150%' }}>
-            <HomeMenu clockStyle={this.setClockStyle} />
+          <div style={{ position: 'absolute', left: '20px', bottom: '-200%' }}>
+            <HomeMenu
+              clockStyle={(e) => this.props.clockStyle(e)}
+              selfTimeButton={(e) => this.props.selfTimeButton(e)}
+              selfTime={this.props.selfTime}
+            />
           </div>
         )}
       </nav>

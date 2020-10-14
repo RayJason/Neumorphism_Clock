@@ -17,14 +17,14 @@ function clock(props) {
     switch (props.clockStyle) {
       case 0:
         // 数字时钟
-        return <DigitalClock />
+        return <DigitalClock Time={props.Time} />
       case 1:
         // 模拟时钟
-        return <AnalogClock />
+        return <AnalogClock Time={props.Time} />
 
       default:
         // 默认模拟时钟
-        return <AnalogClock />
+        return <AnalogClock Time={props.Time} />
     }
   }
 

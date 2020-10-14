@@ -1,56 +1,11 @@
 import React, { Component } from 'react'
 import Clock from './components/clock'
-import Button from './../../components/button/button'
 import styles from './home.module.scss'
+import TimePicker from './../../components/pickers/TimePicker.js'
 
 import Nav from './../../components/header/Nav.js'
+import FeaturesList from './components/featuresList'
 import Footer from './../../components/footer/footer.js'
-
-import clock from './../../assets/clock.svg'
-import shalou from './../../assets/shalou.svg'
-import daojishi from './../../assets/daojishi.svg'
-import naozhong from './../../assets/naozhong.svg'
-
-// 左下角功能列表
-function FeaturesList() {
-  const featuresList = [
-    {
-      id: 1,
-      feature: '时间',
-      icon: clock,
-    },
-    {
-      id: 2,
-      feature: '倒计时',
-      icon: shalou,
-    },
-    {
-      id: 3,
-      feature: '计时',
-      icon: daojishi,
-    },
-    {
-      id: 4,
-      feature: '闹钟',
-      icon: naozhong,
-    },
-  ]
-
-  return (
-    <div className={`${styles.features} rowCenter`}>
-      {featuresList.map((feature) => (
-        <div
-          key={feature.id}
-          className="columnCenter"
-          style={{ margin: '10px' }}
-        >
-          <p>{feature.feature}</p>
-          <Button button_icon={feature.icon} id={feature.icon} />
-        </div>
-      ))}
-    </div>
-  )
-}
 
 export class home extends Component {
   constructor() {
@@ -60,27 +15,39 @@ export class home extends Component {
       features: 0, // 功能选择
       punctual: false, // 整点报时
       clockStyle: 1, // 时钟风格
+      selfTime: false, // 自定义时间开关
+      Time: '0:0:0', // （自定义）时间
+
+      route: 1, // 功能选择
     }
-
-    this.setClockStyle = this.setClockStyle.bind(this)
-  }
-
-  // 时钟风格切换
-  setClockStyle(e) {
-    this.setState({
-      clockStyle: e,
-    })
   }
 
   render() {
     return (
       <div>
-        <Nav clockStyle={this.setClockStyle} />
+        <Nav
+          clockStyle={(e) => this.setState({ clockStyle: e })}
+          selfTimeButton={(e) => this.setState({ selfTime: e })}
+          selfTime={this.state.selfTime}
+        />
         <div style={{ position: 'relative' }}>
           <div className={`${styles.home} columnCenter`}>
-            <Clock clockStyle={this.state.clockStyle} />
+            {this.state.selfTime ? (
+              <TimePicker
+                sendTime={(e) => this.setState({ Time: e })}
+                changeButton={(e) => this.setState({ selfTime: e })}
+              />
+            ) : (
+              <Clock
+                clockStyle={this.state.clockStyle}
+                Time={this.state.Time}
+              />
+            )}
           </div>
-          <FeaturesList />
+          <FeaturesList
+            route={this.state.route}
+            routeTo={(e) => this.setState({route:e})}
+          />
         </div>
         <Footer />
       </div>

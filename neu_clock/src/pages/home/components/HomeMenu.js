@@ -23,6 +23,15 @@ export default function HomeMenu(props) {
     }
   }
 
+  // 开启自定义时间
+  function selfTimeChange(e) {
+    if (e.target.checked) {
+      props.selfTimeButton(true)
+    } else {
+      props.selfTimeButton(false)
+    }
+  }
+
   // 左上角菜单按钮弹出的设置
   return (
     <div className={`${styles.menu} columnCenterStart`}>
@@ -49,6 +58,19 @@ export default function HomeMenu(props) {
         />
         <label htmlFor="clockStyle" className={`${styles.text}`}>
           数字时钟/模拟时钟
+        </label>
+      </div>
+      <div className={`${styles.item} rowCenter`}>
+        <input
+          className="switch"
+          type="checkbox"
+          id="selfTime"
+          value="self"
+          checked={props.selfTime}
+          onChange={selfTimeChange}
+        />
+        <label htmlFor="selfTime" className={`${styles.text}`}>
+          自定义时间
         </label>
       </div>
     </div>

@@ -15,6 +15,18 @@
 
 ![alt Demand_Design](README_PIC/Demand_Design.png)
 
+--- 
+## 2020.10.14
+- 重构模拟时钟，均改为外部传时间
+- TODO 默认传入现在时间；指针动画
+- 增加自定义时间选择器 样式未完善
+- 增加自定义时间设置按钮，实现父子双向传值
+- 功能栏增加点击切换选择的样式 TODO 功能页切换 考虑各个功能单独成页
+- 子父传值可在父组件子标签内用箭头函数，不需要另外声明一个函数
+- 认识React新版生命周期 _getDerivedStateFromProps_ 和 _componentDidUpdate_
+
+![alt React_clock_Building_20201014](README_PIC/React_clock_Building_20201014.png)
+
 ---
 ## 2020.10.09
 - 实现按钮功能开关：数字时钟和模拟时钟切换
@@ -28,7 +40,9 @@
   - 子父传值：
     - 子：
       - 有状态组件：_this.props.stateName(值)_
-      - 无状态组件：function name(_props_) _props.stateName(值)_ 
+      - 无状态组件：
+        - 组件括号加上props： function name(_props_) 
+        - 内部调用的函数内：_props.stateName(值)_ 
     - 父：在子标签 _{stateName={this.setFunction}}_
       - _function setFunction(e) { console.log("接收到的值：",e) }_
 
@@ -39,7 +53,7 @@
 - 按钮组件 button -> input type:checkbox 支持选择效果 更多拓展性
 - 菜单按钮增加动画效果  
 
-![alt React_clock_Building_20201002](README_PIC/React_clock_Building_20201005.png)
+![alt React_clock_Building_20201005](README_PIC/React_clock_Building_20201005.png)
 
 ---  
 ## 2020.10.02  

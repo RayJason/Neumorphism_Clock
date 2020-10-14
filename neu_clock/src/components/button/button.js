@@ -34,6 +34,7 @@ function Button(props) {
       target="_blank"
       rel="nofollow noopener noreferrer"
       style={props.style}
+      onClick={props.onClick}
     >
       {props.id && (
         <input
@@ -45,15 +46,22 @@ function Button(props) {
           style={{ appearance: 'none', display: 'none' }}
         ></input>
       )}
-
       <label
         htmlFor={props.id}
         className={`columnCenter ${buttonStyle()}`}
-        style={{ width: props.Width, height: props.Height, cursor: 'pointer' }}
+        style={{
+          width: props.Width,
+          height: props.Height,
+          cursor: 'pointer',
+          fontSize: '12px',
+        }}
       >
+        {/* 图标 */}
         {props.button_icon && (
           <img src={props.button_icon} alt="" width="50%" />
         )}
+
+        {/* 文字 */}
         {props.button_text}
       </label>
     </a>
