@@ -15,6 +15,37 @@
 
 ![alt Demand_Design](README_PIC/Demand_Design.png)
 
+---
+## 2020.10.15
+- 重构模拟时钟、数字时钟，均改为外部传时间，并附上时间戳
+- 计算旋转角度需要留意js精度问题
+- 自定义时间计算：
+  - 通过现在的时间戳-设置时的时间戳的差（单位：秒），得出相对时差，即设置自定义时间到“现在”经过了多少秒n
+    - `outTime = nowTimestamp - this.state.prevTimestamp`
+  - 利用差值n秒：取模、相除向下取整等计算n秒后的h、m、S
+```javascript
+let allSecond = second + outTime // 秒  
+let allMinute = minute * 60 + allSecond // 截止到分的总秒 
+
+second = allSecond % 60
+minute = (minute + Math.floor(allSecond / 60)) % 60
+hour = (hour + Math.floor(allMinute / 3600)) % 24
+```
+  - 利用计算出来的h、m、S计算指针旋转的角度
+```javascript
+hourRotate: (hour % 12) * 30 + minute / 2,
+minuteRotate: minute * 6 + second / 10,
+secondRotate: second * 6,
+```
+- 默认当前北京时间：
+  - 当前北京时间戳nowTimestamp = 标准时间戳 + 8小时（换算毫秒），未传入自定义时间时相对时差为0，因此显示的时间就是现在时间戳显示的时间。
+- 绑定this的两种写法：
+  - 函数使用箭头函数 `functionName = () => {}`
+  - 函数不用箭头函数，在constructor注册 ` constructor() { this.functionName = this.functionName.bind(this) } `
+
+![alt 用户自定义时间](README_PIC/用户自定义时间.png)
+![alt updataTime](README_PIC/updataTime.png)
+
 --- 
 ## 2020.10.14
 - 重构模拟时钟，均改为外部传时间

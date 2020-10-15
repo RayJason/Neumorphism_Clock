@@ -3,11 +3,11 @@ import Button from './../button/button'
 
 function TimePicker(props) {
   // 自选时间
-  let hour = 0
-  let minute = 0
-  let second = 0
+  let hour = 12
+  let minute = 30
+  let second = 30
 
-  let time = '0:0:0'
+  let time = hour + ':' + minute + ':' + second
 
   let candidate60 = []
   let candidate24 = []
@@ -28,9 +28,10 @@ function TimePicker(props) {
     time = nHour + ':' + nMinute + ':' + nSecond
 
     // 传到父组件
-    console.log('时间设置', time)
+    console.log('TimePicker时间设置', time)
     props.sendTime(time)
     props.changeButton(false)
+    props.timestamp(Math.round(new Date() / 1000) + 28800000)
   }
 
   // 设置自定义时间
@@ -38,9 +39,10 @@ function TimePicker(props) {
     time = hour + ':' + minute + ':' + second
 
     // 传到父组件
-    console.log('时间设置', time)
+    console.log('TimePicker时间设置', time)
     props.sendTime(time)
     props.changeButton(false)
+    props.timestamp(Math.round(new Date() / 1000) + 28800000)
   }
 
   return (
@@ -51,6 +53,7 @@ function TimePicker(props) {
         style={{ width: '100%', margin: '20px 0' }}
       >
         <select
+          defaultValue={hour}
           onChange={(e) => {
             hour = e.target.value
           }}
@@ -65,6 +68,7 @@ function TimePicker(props) {
         </select>
         <p>:</p>
         <select
+          defaultValue={minute}
           onChange={(e) => {
             minute = e.target.value
           }}
@@ -79,6 +83,7 @@ function TimePicker(props) {
         </select>
         <p>:</p>
         <select
+          defaultValue={second}
           onChange={(e) => {
             second = e.target.value
           }}

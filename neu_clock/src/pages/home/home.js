@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Clock from './components/clock'
 import styles from './home.module.scss'
-import TimePicker from './../../components/pickers/TimePicker.js'
 
+import TimePicker from './../../components/pickers/TimePicker.js'
 import Nav from './../../components/header/Nav.js'
 import FeaturesList from './components/featuresList'
 import Footer from './../../components/footer/footer.js'
@@ -16,8 +16,8 @@ export class home extends Component {
       punctual: false, // 整点报时
       clockStyle: 1, // 时钟风格
       selfTime: false, // 自定义时间开关
-      Time: '0:0:0', // （自定义）时间
-
+      Time: '', // （自定义）时间
+      pickerTimestamp: 0,
       route: 1, // 功能选择
     }
   }
@@ -35,18 +35,20 @@ export class home extends Component {
             {this.state.selfTime ? (
               <TimePicker
                 sendTime={(e) => this.setState({ Time: e })}
+                timestamp={(e) => this.setState({ pickerTimestamp: e })}
                 changeButton={(e) => this.setState({ selfTime: e })}
               />
             ) : (
               <Clock
                 clockStyle={this.state.clockStyle}
                 Time={this.state.Time}
+                timestamp={this.state.pickerTimestamp}
               />
             )}
           </div>
           <FeaturesList
             route={this.state.route}
-            routeTo={(e) => this.setState({route:e})}
+            routeTo={(e) => this.setState({ route: e })}
           />
         </div>
         <Footer />
