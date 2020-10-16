@@ -19,6 +19,8 @@ export default class clock extends Component {
       nowTime: '0:0:0', // 现在显示的时间
 
       renderClockTimeout: '', // 更新时钟计时器
+
+      init: true, // 初始化时间
     }
   }
 
@@ -66,9 +68,18 @@ export default class clock extends Component {
     minute = (minute + Math.floor(allSecond / 60)) % 60
     hour = (hour + Math.floor(allMinute / 3600)) % 24
 
+    let onHour = false // boolse 是否整点
+    if (!this.state.init && minute === 0 && second === 0) {
+      onHour = true
+    } else {
+      onHour = false
+    }
+    this.props.onHour(onHour)
+
     this.setState({
       nowTime: hour + ':' + minute + ':' + second,
       renderClockTimeout: setTimeout(this.calcuTime, 1000),
+      init: false
     })
   }
 
