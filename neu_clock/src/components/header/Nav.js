@@ -74,6 +74,7 @@ export default class Nav extends Component {
               clockStyle={(e) => this.props.clockStyle(e)}
               selfTimeButton={(e) => this.props.selfTimeButton(e)}
               selfTime={this.props.selfTime}
+              setPunctual={(e) => this.props.setPunctual(e)}
             />
           </div>
         )}

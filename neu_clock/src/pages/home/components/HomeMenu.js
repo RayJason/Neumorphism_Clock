@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './HomeMenu.module.scss'
-// import Toast from './../../../components/toast/toast'
 
 export default function HomeMenu(props) {
 
@@ -8,9 +7,10 @@ export default function HomeMenu(props) {
   function punctualChange(e) {
     if (e.target.checked) {
       console.log('开启整点报时')
-      // Toast.info('开启整点报时')
+      props.setPunctual(true)
     } else {
       console.log('关闭整点报时')
+      props.setPunctual(false)
     }
   }
 

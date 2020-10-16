@@ -7,70 +7,44 @@ export default class AnalogClock extends Component {
     this.state = {
       date: '', // 时钟下面显示的时间
       settedTime: '0:0:0', // 正在运行的初始时间
+      prevTimestamp: 0, // 设置自定义时间时的时间戳
 
       hourRotate: 0, // 时针角度
       minuteRotate: 0, // 分针角度
       secondRotate: 0, // 秒针角度
 
-      updataTimeout: '', // 更新时钟计时器
-      prevTimestamp: 0, // 设置自定义时间时的时间戳
+      renderClockTimeout: '', // 更新时钟计时器
     }
   }
 
   // 在第一次渲染后调用
   componentDidMount() {
-    this.initTime()
+    this.renderClock()
   }
 
   componentDidUpdate() {
     // console.log('componentDidUpdate的props.Time', this.props.Time)
-    // console.log('componentDidUpdate的settedTime', this.state.settedTime)
+    console.log('componentDidUpdate的settedTime', this.state.settedTime)
     if (this.props.Time && this.props.Time !== this.state.settedTime) {
       this.setState(
         {
           settedTime: this.props.Time,
           prevTimestamp: this.props.timestamp, // 单位：秒
         },
-        () => this.initTime()
+        () => this.renderClock()
       )
     }
   }
 
   // 在组件从 DOM 中移除之前立刻被调用
   componentWillUnmount() {
-    clearTimeout(this.state.updataTimeout)
-  }
-
-  // 初始化更新时间 (自定义时间)
-  initTime = () => {
-    // 清除计时器
-    clearTimeout(this.state.updataTimeout)
-    let data = this.state.settedTime
-    // 提取时/分/秒 格式化并计算旋转角度
-    let hour = Number(data.split(':')[0])
-    let minute = Number(data.split(':')[1])
-    let second = Number(data.split(':')[2])
-    let time =
-      (hour < 10 ? '0' + hour : hour) +
-      ':' +
-      (minute < 10 ? '0' + minute : minute) +
-      ':' +
-      (second < 10 ? '0' + second : second)
-    // 设置时间和时钟角度
-    this.setState(
-      {
-        date: time,
-        hourRotate: (hour % 12) * 30 + minute / 2,
-        minuteRotate: minute * 6 + second / 10,
-        secondRotate: second * 6,
-      },
-      () => this.updataTime()
-    )
+    clearTimeout(this.state.renderClockTimeout)
   }
 
   // 更新时钟
-  updataTime = () => {
-    // this.calcuRotate()
+  renderClock = () => {
+    // 清除计时器
+    clearTimeout(this.state.renderClockTimeout)
     let data = this.state.settedTime
     let hour = Number(data.split(':')[0])
     let minute = Number(data.split(':')[1])
@@ -98,18 +72,9 @@ export default class AnalogClock extends Component {
       hourRotate: (hour % 12) * 30 + minute / 2,
       minuteRotate: minute * 6 + second / 10,
       secondRotate: second * 6,
-      updataTimeout: setTimeout(this.updataTime, 1000),
+      renderClockTimeout: setTimeout(this.renderClock, 1000),
     })
   }
-
-  // 计算模拟时钟角度
-  // calcuRotate = () => {
-  //   this.setState({
-  //     hourRotate: this.state.hourRotate + 1 / 120,
-  //     minuteRotate: this.state.minuteRotate + 1 / 10,
-  //     secondRotate: this.state.secondRotate + 6,
-  //   })
-  // }
 
   render() {
     return (

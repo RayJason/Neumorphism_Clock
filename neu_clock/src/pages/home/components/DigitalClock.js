@@ -7,15 +7,15 @@ export default class DigitalClock extends Component {
     this.state = {
       date: '', // 显示的时间
       settedTime: '0:0:0', // 正在运行的初始时间
-
-      updataTimeout: '', // 更新时钟计时器
       prevTimestamp: 0, // 设置自定义时间时的时间戳
+
+      renderClockTimeout: '', // 更新时钟计时器
     }
   }
 
   // 在第一次渲染后调用
   componentDidMount() {
-    this.initTime()
+    this.renderClock()
   }
 
   componentDidUpdate() {
@@ -27,42 +27,18 @@ export default class DigitalClock extends Component {
           settedTime: this.props.Time,
           prevTimestamp: this.props.timestamp, // 单位：秒
         },
-        () => this.initTime()
+        () => this.renderClock()
       )
     }
   }
 
   // 在组件从 DOM 中移除之前立刻被调用
   componentWillUnmount() {
-    clearTimeout(this.state.updataTimeout)
-  }
-
-  // 初始化更新时间 (自定义时间)
-  initTime = () => {
-    // 清除计时器
-    clearTimeout(this.state.updataTimeout)
-    let data = this.state.settedTime
-    // 提取时/分/秒 格式化
-    let hour = Number(data.split(':')[0])
-    let minute = Number(data.split(':')[1])
-    let second = Number(data.split(':')[2])
-    let time =
-      (hour < 10 ? '0' + hour : hour) +
-      ':' +
-      (minute < 10 ? '0' + minute : minute) +
-      ':' +
-      (second < 10 ? '0' + second : second)
-    // 设置时间和时钟角度
-    this.setState(
-      {
-        date: time,
-      },
-      () => this.updataTime()
-    )
+    clearTimeout(this.state.renderClockTimeout)
   }
 
   // 更新时钟
-  updataTime = () => {
+  renderClock = () => {
     // this.calcuRotate()
     let data = this.state.settedTime
     let hour = Number(data.split(':')[0])
@@ -88,7 +64,7 @@ export default class DigitalClock extends Component {
 
     this.setState({
       date: time,
-      updataTimeout: setTimeout(this.updataTime, 1000),
+      renderClockTimeout: setTimeout(this.renderClock, 1000),
     })
   }
 
