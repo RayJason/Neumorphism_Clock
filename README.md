@@ -15,7 +15,30 @@
 
 ![alt Demand_Design](README_PIC/Demand_Design.png)  
 
+
+### Enter project
+```
+cd neu_clock 
+```
+
+### Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm start
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+## 更新日志
 ---
+
 ## 2020.10.16
 - clock -> 有状态组件
 - 数字时钟、模拟时钟 -> 无状态组件
