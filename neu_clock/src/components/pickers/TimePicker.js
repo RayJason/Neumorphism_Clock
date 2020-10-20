@@ -12,10 +12,10 @@ function TimePicker(props) {
   let candidate60 = []
   let candidate24 = []
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 24; i++) {
     candidate24.push(i < 10 ? '0' + i : i)
   }
-  for (let i = 0; i < 61; i++) {
+  for (let i = 0; i < 60; i++) {
     candidate60.push(i < 10 ? '0' + i : i)
   }
 
