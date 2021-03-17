@@ -15,21 +15,21 @@ export default function featuresList(props) {
       feature: '时间',
       icon: clock,
     },
-    {
-      id: 2,
-      feature: '倒计时',
-      icon: shalou,
-    },
-    {
-      id: 3,
-      feature: '计时',
-      icon: daojishi,
-    },
-    {
-      id: 4,
-      feature: '闹钟',
-      icon: naozhong,
-    },
+    // {
+    //   id: 2,
+    //   feature: '倒计时',
+    //   icon: shalou,
+    // },
+    // {
+    //   id: 3,
+    //   feature: '计时',
+    //   icon: daojishi,
+    // },
+    // {
+    //   id: 4,
+    //   feature: '闹钟',
+    //   icon: naozhong,
+    // },
   ]
   return (
     <div className={`${styles.features} rowCenter`}>
