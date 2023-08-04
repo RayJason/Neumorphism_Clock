@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../../components/button/Button';
-import styles from './../home.module.scss';
+import styles from './../Home.module.scss';
 import clock from './../../../assets/icons/clock.svg';
 // import shalou from './../../../assets/icons/shalou.svg';
 // import daojishi from './../../../assets/icons/daojishi.svg';
